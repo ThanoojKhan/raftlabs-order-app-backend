@@ -8,6 +8,7 @@ module.exports = cleanEnv(process.env, {
     }),
     MONGODB_URI: str(),
     PORT: port({ default: 3000 }),
+    FRONTEND_URL: str(),
 
     // Order limits
     MAX_QUANTITY_PER_ITEM: num({ default: 10 }),
