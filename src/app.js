@@ -3,13 +3,12 @@ const cors = require("cors");
 const morgan = require('morgan');
 const globalErrorHandler = require("./middlewares/error-handler.middleware");
 const AppError = require("./utils/app-error.util");
-const env = require("./config/env");
 
 const app = express();
 
 app.use(cors(
   {
-    origin: env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }
 ));
