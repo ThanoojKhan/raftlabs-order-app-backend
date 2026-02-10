@@ -4,12 +4,12 @@ const { createOrder, getOrderById, getAllOrders } = require("../services/order.s
 
 // Place a new order
 exports.placeOrder = catchAsync(async (req, res) => {
-    const order = await createOrder(req.body);
+    const { orderId } = await createOrder(req.body);
 
     res.status(201).json({
         success: true,
         message: "Order placed successfully",
-        data: order,
+        orderId,
     });
 });
 
@@ -28,10 +28,10 @@ exports.fetchAllOrders = catchAsync(async (_req, res) => {
 
 // Get a single order by ID
 exports.getOrder = catchAsync(async (req, res) => {
-    const order = await getOrderById(req.params.id);
+    const { order } = await getOrderById(req.params.id);
 
     res.status(200).json({
         success: true,
-        data: order,
+        order,
     });
 });

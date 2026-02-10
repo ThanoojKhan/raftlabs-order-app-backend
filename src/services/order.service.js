@@ -72,7 +72,7 @@ exports.createOrder = async (data) => {
         simulateOrderProgress(order._id);
     }
 
-    return order;
+    return { orderId: order._id };
 };
 
 // Simulate order progress
@@ -115,5 +115,5 @@ exports.getOrderById = async (orderId) => {
         throw new AppError({ statusCode: 404, message: "Order not found" });
     }
 
-    return order;
+    return { order };
 };
