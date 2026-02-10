@@ -4,7 +4,7 @@ module.exports = cleanEnv(process.env, {
     // App config
     NODE_ENV: str({
         choices: ["development", "production", "test"],
-        default: "production",
+        default: "development",
     }),
     MONGODB_URI: str(),
     PORT: port({ default: 3000 }),

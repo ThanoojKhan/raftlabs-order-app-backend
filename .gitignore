@@ -29,6 +29,7 @@ vite.config.js.*
 
 # Environment variables
 .env
+.env.test
 
 # PostgreSQL backups
 src/backup-restore/backup

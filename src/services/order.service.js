@@ -67,7 +67,10 @@ exports.createOrder = async (data) => {
         totalAmount,
     });
 
-    simulateOrderProgress(order._id);
+    // Simulate order progress
+    if (ENV.NODE_ENV !== "test") {
+        simulateOrderProgress(order._id);
+    }
 
     return order;
 };

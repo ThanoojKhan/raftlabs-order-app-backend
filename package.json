@@ -6,8 +6,14 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "seed:menu": "node src/config/seed-menu.config.js",
+    "seed:menu": "node src/config/seed-menu.js",
     "test": "jest"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/tests/setup.js"
+    ],
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
