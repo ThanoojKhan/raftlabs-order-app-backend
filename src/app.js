@@ -3,17 +3,20 @@ const cors = require("cors");
 const morgan = require('morgan');
 const globalErrorHandler = require("./middlewares/error-handler.middleware");
 const AppError = require("./utils/app-error.util");
+const ENV = require("./config/env");
 
 const app = express();
 
 app.use(cors(
   {
-    origin: process.env.FRONTEND_URL,
+    origin: ENV.FRONTEND_URL,
+    methods: ['GET', 'POST'],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
   }
 ));
 app.use(express.json());
-if (process.env.NODE_ENV === "development") {
+if (ENV.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
